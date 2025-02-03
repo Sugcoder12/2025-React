@@ -1,6 +1,3 @@
-import Restaurantcard from "./Restaurantcard";
-import resObj from "../utils/mockData";
-
 const resObj = [
     {
         "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
@@ -1330,19 +1327,4 @@ const resObj = [
         "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
     }
 ];
-
-const Body = () => {
-    return(
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-container">
-              
-               { resObj.map ( resturant => 
-                   <Restaurantcard key={resturant.info.id} resData={resturant.info}/> 
-                )}
-            </div>
-        </div>
-    )
-}
-
-export default Body; 
+export default resObj;
