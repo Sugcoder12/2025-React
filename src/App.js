@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import Header from "./components/Header";
+import Body from "./components/Body";
 //   -- Header
 //      -- logo  
 //      -- Navigation 
@@ -1343,25 +1344,6 @@ const resObj = [
     }
 ]
 
-
-const Header = () => {
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src="https://cdn.dribbble.com/users/1191192/screenshots/4250680/media/69d7005d9c2a27cc27d549415633ab11.jpg"/>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
 const Restaurantcard = (props) => {
     const {resData} = props;
     return (
@@ -1376,29 +1358,6 @@ const Restaurantcard = (props) => {
     )
 }
 
-const Body = () => {
-    return(
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-container">
-              
-               { resObj.map ( resturant => 
-                   <Restaurantcard key={resturant.info.id} resData={resturant.info}/> 
-                )}
-
-
-                {/* 
-                <Restaurantcard resData={resObj[0].info}/>
-                <Restaurantcard resData={resObj[1].info}/>
-                <Restaurantcard resData={resObj[2].info}/>
-                <Restaurantcard resData={resObj[3].info}/>
-                <Restaurantcard resData={resObj[4].info}/>
-                <Restaurantcard resData={resObj[5].info}/> */}
-                {/* <Restaurantcard resName="Sandwicho" cuisines="Bakery, Indian, Shakes, Fastfood" time="50 minutes" rating="4 stars"/> */}
-            </div>
-        </div>
-    )
-}
 const AppLayout = () => {
     return(
         <div className="App">
