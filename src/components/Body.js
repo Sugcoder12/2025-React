@@ -1,5 +1,6 @@
 import Restaurantcard from "./Restaurantcard";
 import resObj from "../utils/mockData";
+import { useState } from "react";
 
 const resObj = [
     {
@@ -1332,12 +1333,22 @@ const resObj = [
 ];
 
 const Body = () => {
+    // local State Variable - Super power variable
+    const [listOfResturant, setListOfResturant] = useState(resObj);
     return(
         <div className="body">
-            <div className="search">Search</div>
+            <div className="filter">
+                <button className="filter-btn" onClick={()=> {
+                    console.log("hi");
+                    const filteredList = listOfResturant.filter(
+                        (res) => res.info.avgRating > 4
+                    );
+                    setListOfResturant(filteredList);
+                }}>Top Rated Restaurant</button>
+            </div>
             <div className="res-container">
               
-               { resObj.map ( resturant => 
+               { listOfResturant.map ( resturant => 
                    <Restaurantcard key={resturant.info.id} resData={resturant.info}/> 
                 )}
             </div>
