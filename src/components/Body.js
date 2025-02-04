@@ -1,6 +1,6 @@
 import Restaurantcard from "./Restaurantcard";
 import resObj from "../utils/mockData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const resObj = [
     {
@@ -1335,6 +1335,18 @@ const resObj = [
 const Body = () => {
     // local State Variable - Super power variable
     const [listOfResturant, setListOfResturant] = useState(resObj);
+    
+    useEffect(()=>{
+        fetchData();
+    }, []);
+
+const fetchData = async ()=>{
+    const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.428934&lng=78.3529326&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+    const json = await data.json();
+    console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+    setListOfResturant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+}
+
     return(
         <div className="body">
             <div className="filter">
