@@ -1334,7 +1334,7 @@ const resObj = [
 
 const Body = () => {
     // local State Variable - Super power variable
-    const [listOfResturant, setListOfResturant] = useState(resObj);
+    const [listOfResturant, setListOfResturant] = useState([]);
     
     useEffect(()=>{
         fetchData();
@@ -1344,7 +1344,11 @@ const fetchData = async ()=>{
     const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.428934&lng=78.3529326&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
     const json = await data.json();
     console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-    setListOfResturant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+    setListOfResturant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+}
+
+if(listOfResturant.length===0){
+    return <h1>Loading.... </h1>
 }
 
     return(
