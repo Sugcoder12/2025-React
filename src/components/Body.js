@@ -1,7 +1,7 @@
 import Restaurantcard from "./Restaurantcard";
 import resObj from "../utils/mockData";
 import { useEffect, useState } from "react";
-
+import Shimmer from "./Shimmer";
 const resObj = [
     {
         "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
@@ -1348,7 +1348,7 @@ const fetchData = async ()=>{
 }
 
 if(listOfResturant.length===0){
-    return <h1>Loading.... </h1>
+    return <Shimmer/>
 }
 
     return(
