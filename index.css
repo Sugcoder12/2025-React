@@ -59,3 +59,9 @@ img.resturant-image {
     cursor: pointer;
     margin-right: 20px;
 }
+.filter{
+    display: flex;
+}
+.search-btn {
+    margin-left: 5px;
+}
